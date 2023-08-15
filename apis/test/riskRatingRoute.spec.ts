@@ -41,7 +41,7 @@ describe("POST /api/risk_rating", () => {
     const output = { rate: 1 };
 
     const res: Response = await request.post("/api/risk_rating").send(input).expect(200);
-    const responseBody = res.body as { rate: number };
+    const responseBody = res.body
     assert.equal(responseBody.rate, output.rate);
   });
 
