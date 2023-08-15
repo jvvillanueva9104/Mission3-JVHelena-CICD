@@ -5,8 +5,8 @@
   "main": "./apis/src/server.ts",
   "scripts": {
     "test": "mocha --require ts-node/register 'functions/test/**/*.spec.ts' 'apis/test/**/*.spec.ts'",
-    "dev": "nodemon ./apis/src/server.ts",
-    "start": "node /Users/helenalee/Desktop/Mission1/Backend/apis/src/server.ts"
+    "dev": "tsnd ./apis/src/server.ts",
+    "start": "tsnd /Users/helenalee/Desktop/Mission1/Backend/apis/src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "nodemon": "^3.0.1",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {

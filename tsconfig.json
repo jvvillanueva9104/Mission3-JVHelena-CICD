@@ -6,7 +6,7 @@
     "outDir": "functions apis", // Output directory for compiled files
     "rootDir": "./", // Directory where your test files are located
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
   "include": [
     "functions/src/**/*.ts",
