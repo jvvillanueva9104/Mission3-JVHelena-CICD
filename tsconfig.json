@@ -10,10 +10,10 @@
   },
   "include": [
     "src/services/**/*.ts",
-    "tests/serviceTests/**/*.ts",
+    "test/serviceTests/**/*.ts",
     "src/controllers/**/*.ts",
-    "tests/controllersTests/**/*.ts" // Adjust the pattern based on your test file location
-, "src/routes/server.ts", "tests/routesTests/server.spec.ts"  ],
+    "test/controllersTests/**/*.ts" // Adjust the pattern based on your test file location
+, "src/routes/server.ts", "test/routesTests/server.spec.ts"  ],
   "exclude": [
      // Exclude your main application source files
   ]

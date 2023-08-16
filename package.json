@@ -4,9 +4,20 @@
   "description": "",
   "main": "./apis/src/server.ts",
   "scripts": {
-    "test": "mocha --require ts-node/register 'tests/controllersTests/**/*.spec.ts' 'tests/serviceTests/**/*.spec.ts' 'tests/routesTests/**/*.spec.ts'",
+    "test": "mocha && nyc mocha",
     "dev": "tsnd ./src/routes/server.ts",
     "start": "tsnd /Users/helenalee/Desktop/Mission1/Backend/apis/src/server.ts"
+  },
+  "mocha": {
+    "require": [
+      "ts-node/register"
+    ],
+    "recursive": true,
+    "extension": [
+      "ts",
+      "js",
+      "tsx"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -20,6 +31,7 @@
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
+    "nyc": "^15.1.0",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",

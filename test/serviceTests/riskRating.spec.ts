@@ -43,6 +43,13 @@ describe("getRate function", () => {
 
     expect(getRates(input)).to.deep.equal(errorMessage);
   });
+
+  it("should return an error message for invalid claim history type", () => {
+    const input = { claimHistory: 123 };
+    const errorMessage = "Invalid input. Please provide a valid claim history.";
+
+    expect(getRates(input)).to.deep.equal(errorMessage);
+  });
 });
 
 export default describe;

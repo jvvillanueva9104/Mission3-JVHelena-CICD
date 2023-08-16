@@ -1,5 +1,5 @@
 export type ClaimInput = {
-  claimHistory: string;
+  claimHistory: string | number;
 };
 
 export type RatingOutput = {
