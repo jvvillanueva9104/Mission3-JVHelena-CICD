@@ -25,12 +25,3 @@ export function finalQuote({ value, rate }: ValueInput): QuoteOutput | string {
     monthly: monthlyPrem,
   };
 }
-
-
-// Example usage:
-// const input1: ValueInput = { value: 6614, riskRate: 5 };
-
-// const output1: QuoteOutput | string = finalQuote(input1);
-
-// console.log(output1); // Output: { quoteYearly:330 ,quoteMonthly: 27.5 }
-

@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { createPool } from "mysql2/promise";
+import { carValue, CarInput, CarOutput } from "../../functions/src/carValue";
 require("dotenv").config();
 
 const pool = createPool({
@@ -12,14 +13,8 @@ const pool = createPool({
   queueLimit: 0,
 });
 
-
 const carValueRouter = express.Router();
 
-/* -----------API 1. car value-------------------------- */
-//import carValue function and types
-import { carValue, CarInput, CarOutput } from "../../functions/src/carValue";
-
-// carValue endpoint "/api/car_value"
 carValueRouter.post("/api/car_value", async (req: Request, res: Response) => {
   try {
     const { model, year } = req.body as CarInput;
@@ -30,7 +25,7 @@ carValueRouter.post("/api/car_value", async (req: Request, res: Response) => {
     const carValueResult = carValue({ model, year });
 
     if (typeof carValueResult === "number") {
-      const queryResult = await pool.query("INSERT INTO car_insurance_table (model, year, value ) VALUES (?, ?, ?)", [
+      const queryResult = await pool.query("INSERT INTO car_insurance_table (model, year, value) VALUES (?, ?, ?)", [
         model,
         year,
         carValueResult,
@@ -40,8 +35,8 @@ carValueRouter.post("/api/car_value", async (req: Request, res: Response) => {
 
     res.json(response);
   } catch (error) {
-    res.status(400).json({ error} );
+    res.status(400).json({ error });
   }
 });
 
-export {carValueRouter}
+export { carValueRouter };

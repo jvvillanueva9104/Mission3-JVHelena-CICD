@@ -34,13 +34,3 @@ export function carValue({ model, year }: CarInput): CarOutput | string {
   };
 }
 
-// module.exports = carValue;
-// Example usage:
-// // const input1: CarInput = { model: "Civic", year: 2014 };
-// const input2: CarInput = { model: "", year: 2020 };
-
-// // const output1: CarOutput | string = carValue(input1);
-// const output2: CarOutput | string = carValue(input2);
-
-// // console.log(output1); // Output: { value: "$6,614" }
-// console.log(output2); // Output: { value: "$8,135" }

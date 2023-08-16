@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { createPool } from "mysql2/promise";
+import { getRates, ClaimInput, RatingOutput } from "../../functions/src/riskRating";
 require("dotenv").config();
 
 const pool = createPool({
@@ -14,11 +15,6 @@ const pool = createPool({
 
 const riskRatingRouter = express.Router();
 
-/* -----------API 2. risk rating-------------------------- */
-//import get Rates function and types
-import { getRates, ClaimInput, RatingOutput } from "../../functions/src/riskRating";
-
-//riskRating endpoint "/api/risk_rating"
 riskRatingRouter.post("/api/risk_rating", async (req: Request, res: Response) => {
   try {
     const { claimHistory } = req.body as ClaimInput;
