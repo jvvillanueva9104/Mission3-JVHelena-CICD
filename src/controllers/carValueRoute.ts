@@ -22,15 +22,14 @@ carValueRouter.post("/api/car_value", async (req: Request, res: Response) => {
       return res.status(400).json("Invalid input. Please provide a valid value for model and year.");
     }
 
-    const carValueResult = carValue({ model, year });
+    const carValueResult = carValue({ model, year }) as CarOutput;
 
-    if (typeof carValueResult === "number") {
-      const queryResult = await pool.query("INSERT INTO car_insurance_table (model, year, value) VALUES (?, ?, ?)", [
-        model,
-        year,
-        carValueResult,
-      ]);
-    }
+    const queryResult = await pool.query("INSERT INTO car_insurance_table (model, year, value) VALUES (?, ?, ?)", [
+      model,
+      year,
+      carValueResult.value,
+    ]);
+
     const response: CarOutput | string = carValueResult;
 
     res.json(response);

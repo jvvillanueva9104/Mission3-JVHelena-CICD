@@ -5,8 +5,8 @@ export type ValueInput = {
 
 //carOutput structure
 export type QuoteOutput = {
-  yearly: number;
-  monthly: number;
+  yearly: string;
+  monthly: string;
 };
 
 //
@@ -16,12 +16,12 @@ export function finalQuote({ value, rate }: ValueInput): QuoteOutput | string {
     return "Invalid input. Please provide a valid car value and risk rate.";
   }
 
-  const annualPrem = Math.floor((value * rate) / 100);
+  const annualPrem= (value * rate) / 100
 
-  const monthlyPrem = annualPrem / 12;
+  const monthlyPrem= annualPrem / 12
 
   return {
-    yearly: annualPrem,
-    monthly: monthlyPrem,
+    yearly: annualPrem.toFixed(2),
+    monthly: monthlyPrem.toFixed(2),
   };
 }

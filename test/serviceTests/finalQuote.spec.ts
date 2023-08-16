@@ -5,7 +5,14 @@ import { expect } from "chai";
 describe("finalQuote function", () => {
   it('should return the correct value for value "6641" and riskRate "5" ', () => {
     const input = { value: 6614, rate: 5 };
-    const output = { yearly: 330, monthly: 27.5 };
+    const output = { yearly: "330.70", monthly: "27.56" };
+
+    expect(finalQuote(input)).to.deep.equal(output);
+  });
+
+  it('should return the correct value for value "6200" and riskRate "5" ', () => {
+    const input = { value: 6200, rate: 5 };
+    const output = { yearly: "310.00", monthly: "25.83" };
 
     expect(finalQuote(input)).to.deep.equal(output);
   });

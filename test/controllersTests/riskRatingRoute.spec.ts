@@ -42,7 +42,7 @@ describe("POST /api/risk_rating", () => {
     const input = { claimHistory: "  " };
     const errorMessage = "Invalid input. Please provide a valid claim history.";
 
-    const res: Response = await request.post("/api/risk_rating").send(input).expect(200);
+    const res: Response = await request.post("/api/risk_rating").send(input).expect(400);
     const responseBody = res.body;
     assert.equal(responseBody, errorMessage);
   });

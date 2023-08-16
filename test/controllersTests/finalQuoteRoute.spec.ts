@@ -7,10 +7,20 @@ const request = require("supertest")("http://localhost:4000");
 describe("POST /api/final_quote", () => {
   it("should return the correct value for value 6641 and riskRate 5", async () => {
     const input = { value: 6614, rate: 5 };
-    const output = { yearly: 330, monthly: 27.5 };
+    const output = { yearly: "330.70", monthly: "27.56" };
     const res: Response = await request.post("/api/final_quote").send(input).expect(200);
 
-    const responseBody = res.body as { yearly: number; monthly: number };
+    const responseBody = res.body as { yearly: string; monthly: string };
+    assert.equal(responseBody.yearly, output.yearly);
+    assert.equal(responseBody.monthly, output.monthly);
+  });
+
+  it("should return the correct value for value 6641 and riskRate 5", async () => {
+    const input = { value: 6200, rate: 5 };
+    const output = { yearly: "310.00", monthly: "25.83" };
+    const res: Response = await request.post("/api/final_quote").send(input).expect(200);
+
+    const responseBody = res.body as { yearly: string; monthly: string };
     assert.equal(responseBody.yearly, output.yearly);
     assert.equal(responseBody.monthly, output.monthly);
   });

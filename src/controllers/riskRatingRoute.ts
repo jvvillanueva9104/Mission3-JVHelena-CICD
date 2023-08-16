@@ -18,18 +18,16 @@ const riskRatingRouter = express.Router();
 riskRatingRouter.post("/api/risk_rating", async (req: Request, res: Response) => {
   try {
     const { claimHistory } = req.body as ClaimInput;
-    if (!claimHistory || typeof claimHistory !== "string") {
+    if (!claimHistory || typeof claimHistory !== "string" || claimHistory.trim().length === 0) {
       return res.status(400).json("Invalid input. Please provide a valid claim history.");
     }
 
-    const rateValueResult = getRates({ claimHistory });
+    const rateValueResult = getRates({ claimHistory }) as RatingOutput;
 
-    if (typeof rateValueResult === "number") {
-      const queryResult = await pool.query("INSERT INTO car_insurance_table (claim, rate) VALUES (?, ?)", [
-        claimHistory,
-        rateValueResult,
-      ]);
-    }
+    const queryResult = await pool.query("INSERT INTO car_insurance_table (claim, rate) VALUES (?, ?)", [
+      claimHistory,
+      rateValueResult.rate,
+    ]);
 
     const response: RatingOutput | string = rateValueResult;
 
