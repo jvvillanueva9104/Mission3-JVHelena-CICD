@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { createPool } from "mysql2/promise";
-import { finalQuote, ValueInput, QuoteOutput } from "../../functions/src/finalQuote";
+import { finalQuote, ValueInput, QuoteOutput } from "../services/finalQuote";
 require("dotenv").config();
 
 const pool = createPool({

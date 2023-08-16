@@ -1,4 +1,4 @@
-import { finalQuote } from "../src/finalQuote";
+import { finalQuote } from "../../src/services/finalQuote";
 import { describe, it } from "mocha";
 import { expect } from "chai";
 

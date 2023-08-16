@@ -1,5 +1,5 @@
 import { describe, it } from "mocha";
-import { carValue } from "../src/carValue";
+import { carValue } from "../../src/services/carValue";
 import { expect } from "chai";
 
 describe("carValue function", () => {

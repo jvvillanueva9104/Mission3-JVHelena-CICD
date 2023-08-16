@@ -1,9 +1,9 @@
 // Imports
 const express = require("express");
 const cors = require("cors");
-import { carValueRouter } from "./carValueRoute";
-import { riskRatingRouter } from "./riskRatingRoute";
-import { finalQuoteRouter } from "./finalQuoteRoute";
+import { carValueRouter } from "../controllers/carValueRoute";
+import { riskRatingRouter } from "../controllers/riskRatingRoute";
+import { finalQuoteRouter } from "../controllers/finalQuoteRoute";
 
 // //Enable express
 const app = express();

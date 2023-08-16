@@ -4,8 +4,8 @@
   "description": "",
   "main": "./apis/src/server.ts",
   "scripts": {
-    "test": "mocha --require ts-node/register 'functions/test/**/*.spec.ts' 'apis/test/**/*.spec.ts'",
-    "dev": "tsnd ./apis/src/server.ts",
+    "test": "mocha --require ts-node/register 'tests/controllersTests/**/*.spec.ts' 'tests/serviceTests/**/*.spec.ts' 'tests/routesTests/**/*.spec.ts'",
+    "dev": "tsnd ./src/routes/server.ts",
     "start": "tsnd /Users/helenalee/Desktop/Mission1/Backend/apis/src/server.ts"
   },
   "keywords": [],

@@ -1,4 +1,4 @@
-import { getRates } from "../src/riskRating";
+import { getRates } from "../../src/services/riskRating";
 import { describe, it } from "mocha";
 import { expect } from "chai";
 

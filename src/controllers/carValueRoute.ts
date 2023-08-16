@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { createPool } from "mysql2/promise";
-import { carValue, CarInput, CarOutput } from "../../functions/src/carValue";
+import { carValue, CarInput, CarOutput } from "../services/carValue";
 require("dotenv").config();
 
 const pool = createPool({

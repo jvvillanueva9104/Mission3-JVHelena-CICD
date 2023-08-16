@@ -48,7 +48,6 @@ describe("POST /api/final_quote", () => {
 
     const res: Response = await request.post("/api/final_quote").send(input).expect(400);
     const responseBody = res.body;
-    console.log("Response Body:", responseBody);
     assert.equal(responseBody, errorMessage);
   });
 });

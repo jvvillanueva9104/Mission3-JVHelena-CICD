@@ -9,11 +9,11 @@
     "esModuleInterop": true,
   },
   "include": [
-    "functions/src/**/*.ts",
-    "functions/test/**/*.ts",
-    "apis/src/**/*.ts",
-    "apis/test/**/*.ts" // Adjust the pattern based on your test file location
-  ],
+    "src/services/**/*.ts",
+    "tests/serviceTests/**/*.ts",
+    "src/controllers/**/*.ts",
+    "tests/controllersTests/**/*.ts" // Adjust the pattern based on your test file location
+, "src/routes/server.ts", "tests/routesTests/server.spec.ts"  ],
   "exclude": [
      // Exclude your main application source files
   ]
