@@ -1,21 +1,9 @@
-import express, { Request, Response } from "express";
-import { createPool } from "mysql2/promise";
+import { Request, Response } from "express";
+import { pool } from "../pool/pool";
 import { getRates, ClaimInput, RatingOutput } from "../services/riskRating";
-require("dotenv").config();
 
-const pool = createPool({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASS,
-  database: process.env.MYSQL_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-});
 
-const riskRatingRouter = express.Router();
-
-riskRatingRouter.post("/api/risk_rating", async (req: Request, res: Response) => {
+export const riskRatingController = async (req: Request, res: Response) => {
   try {
     const { claimHistory } = req.body as ClaimInput;
     if (!claimHistory || typeof claimHistory !== "string" || claimHistory.trim().length === 0) {
@@ -35,6 +23,6 @@ riskRatingRouter.post("/api/risk_rating", async (req: Request, res: Response) =>
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
-});
+};
 
-export { riskRatingRouter };
+

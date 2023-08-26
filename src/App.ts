@@ -1,9 +1,6 @@
-// Imports
-const express = require("express");
+import express, { Express } from "express";
 const cors = require("cors");
-import { carValueRouter } from "../controllers/carValueRoute";
-import { riskRatingRouter } from "../controllers/riskRatingRoute";
-import { finalQuoteRouter } from "../controllers/finalQuoteRoute";
+import router from "./routes/index";
 
 // //Enable express
 const app = express();
@@ -15,9 +12,7 @@ require("dotenv").config();
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
-app.use(carValueRouter)
-app.use(riskRatingRouter);
-app.use(finalQuoteRouter);
+app.use(router)
 
 const port = process.env.PORT;
 app

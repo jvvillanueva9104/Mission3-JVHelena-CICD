@@ -1,21 +1,8 @@
-import express, { Request, Response } from "express";
-import { createPool } from "mysql2/promise";
+import { Request, Response } from "express";
+import {pool} from "../pool/pool"
 import { finalQuote, ValueInput, QuoteOutput } from "../services/finalQuote";
-require("dotenv").config();
 
-const pool = createPool({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASS,
-  database: process.env.MYSQL_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-});
-
-const finalQuoteRouter = express.Router();
-
-finalQuoteRouter.post("/api/final_quote", async (req: Request, res: Response) => {
+export const finalQuoteController = async (req: Request, res: Response) => {
   try {
     const { value, rate } = req.body as ValueInput;
     if (!value || typeof value !== "number" || value <= 0 || !rate || typeof rate !== "number" || rate <= 0) {
@@ -34,6 +21,5 @@ finalQuoteRouter.post("/api/final_quote", async (req: Request, res: Response) =>
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
-});
+};
 
-export { finalQuoteRouter };

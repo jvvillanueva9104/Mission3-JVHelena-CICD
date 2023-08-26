@@ -12,8 +12,10 @@
     "src/services/**/*.ts",
     "test/serviceTests/**/*.ts",
     "src/controllers/**/*.ts",
-    "test/controllersTests/**/*.ts" // Adjust the pattern based on your test file location
-, "src/routes/server.ts", "test/routesTests/server.spec.ts"  ],
+    "test/controllersTests/**/*.ts",
+    "src/routes/**/*.ts", 
+    "src/App.ts",  
+    "test/App.spec.ts"],
   "exclude": [
      // Exclude your main application source files
   ]

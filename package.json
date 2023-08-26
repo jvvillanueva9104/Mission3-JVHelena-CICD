@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./apis/src/server.ts",
+  "main": "./src/App.ts",
   "scripts": {
     "test": "mocha && nyc mocha",
-    "dev": "tsnd ./src/routes/server.ts",
-    "start": "tsnd /Users/helenalee/Desktop/Mission1/Backend/apis/src/server.ts"
+    "dev": "tsnd ./src/App.ts",
+    "start": "tsnd /Users/helenalee/Desktop/Mission1/Backend/src/App.ts"
   },
   "mocha": {
     "require": [
