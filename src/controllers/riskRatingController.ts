@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { pool } from "../pool/pool";
 import { getRates, ClaimInput, RatingOutput } from "../services/riskRating";
 
 
@@ -11,11 +10,6 @@ export const riskRatingController = async (req: Request, res: Response) => {
     }
 
     const rateValueResult = getRates({ claimHistory }) as RatingOutput;
-
-    const queryResult = await pool.query("INSERT INTO car_insurance_table (claim, rate) VALUES (?, ?)", [
-      claimHistory,
-      rateValueResult.rate,
-    ]);
 
     const response: RatingOutput | string = rateValueResult;
 

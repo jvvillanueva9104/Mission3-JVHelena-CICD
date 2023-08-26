@@ -3,15 +3,12 @@ export type ValueInput = {
   rate: number;
 };
 
-//carOutput structure
 export type QuoteOutput = {
   yearly: string;
   monthly: string;
 };
 
-//
 export function finalQuote({ value, rate }: ValueInput): QuoteOutput | string {
-  // validate input value
   if (!value || typeof value !== "number" || value <= 0 || !rate || typeof rate !== "number" || rate <= 0) {
     return "Invalid input. Please provide a valid car value and risk rate.";
   }

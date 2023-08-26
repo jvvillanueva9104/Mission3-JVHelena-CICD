@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import {pool} from "../pool/pool"
 import { finalQuote, ValueInput, QuoteOutput } from "../services/finalQuote";
 
 export const finalQuoteController = async (req: Request, res: Response) => {
@@ -13,10 +12,6 @@ export const finalQuoteController = async (req: Request, res: Response) => {
     const response: QuoteOutput | string = quoteResult;
     const { yearly, monthly } = response as QuoteOutput;
 
-    const queryResult = await pool.query(
-      "INSERT INTO car_insurance_table (value,rate,yearly,monthly) VALUES (?,?,?,?)",
-      [value, rate, yearly, monthly]
-    );
     res.json(response);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
