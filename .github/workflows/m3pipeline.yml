@@ -59,7 +59,7 @@ jobs:
   deploy_to_test:
     needs: [static_code_analysis, build_and_test]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.base_ref == 'refs/heads/develop'
+    if: github.event_name == 'pull_request' && github.base_ref == 'refs/heads/feature/*'
     steps:
       - name: Debug Info
         run: |
