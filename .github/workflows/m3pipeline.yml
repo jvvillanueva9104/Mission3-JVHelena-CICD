@@ -29,9 +29,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Snyk CLI
-        run: npm install -g snyk
-
       - name: Install NPM
         run: npm install
 
@@ -49,6 +46,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Install Snyk CLI
+        run: npm install -g snyk
 
       - name: Run Snyk Scan
         run: snyk test --all-projects --severity-threshold=high
