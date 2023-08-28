@@ -32,6 +32,9 @@ jobs:
       - name: Install Snyk CLI
         run: npm install -g snyk
 
+      - name: Install NPM
+        run: npm install
+
       - name: Install Dependencies
         run: npm ci
 
