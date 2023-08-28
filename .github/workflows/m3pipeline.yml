@@ -7,13 +7,10 @@ on:
   push:
     branches:
       - "feature/*"
-      - "main"
-      - "develop"
   pull_request:
     branches:
       - "develop"
       - "main"
-  workflow_dispatch:
 
 jobs:
   build_and_test:
@@ -71,58 +68,3 @@ jobs:
 
       - name: Run Snyk Scan
         run: snyk test --all-projects --severity-threshold=high
-
-  deploy_to_test:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.base_ref == 'refs/heads/develop'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: node-app
-
-      - name: "Deploy to Azure Web App - Testing"
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: "turners-car-insurance-test-env"
-          slot-name: "testing"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_936C3E3332AD406D90A7C20EFC2C8959 }}
-          package: .
-
-  deploy_to_production:
-    needs: [static_code_analysis, build_and_test]
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.base_ref == 'refs/heads/main'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: node-app
-
-      - name: "Deploy to Azure Web App - Production"
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: "turners-car-insurance-quote"
-          slot-name: "Production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B5AF5CA862324AC3980A3FDE92C61F45 }}
-          package: .
-
-          #comment test1
