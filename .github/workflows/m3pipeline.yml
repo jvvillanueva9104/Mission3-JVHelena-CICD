@@ -81,6 +81,7 @@ jobs:
             package-lock.json
             package.json
             tsconfig.json
+            .gitignore
 
       - name: "Deploy to Azure Web App - Testing"
         uses: azure/webapps-deploy@v2
@@ -116,6 +117,7 @@ jobs:
             package-lock.json
             package.json
             tsconfig.json
+            .gitignore
 
       - name: "Deploy to Azure Web App - Production"
         uses: azure/webapps-deploy@v2
