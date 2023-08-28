@@ -12,6 +12,8 @@ on:
     branches:
       - "develop"
       - "main"
+    types:
+      - closed
 
 jobs:
   build_and_test:
@@ -89,7 +91,7 @@ jobs:
         with:
           app-name: "turners-car-insurance-test-env"
           slot-name: "testing"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_YOUR_SECRET }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_936C3E3332AD406D90A7C20EFC2C8959  }}
           package: .
 
   deploy_to_production:
