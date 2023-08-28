@@ -83,7 +83,7 @@ jobs:
             tsconfig.json
 
       - name: "Deploy to Azure Web App - Testing"
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: "turners-car-insurance-test-env"
@@ -118,7 +118,7 @@ jobs:
             tsconfig.json
 
       - name: "Deploy to Azure Web App - Production"
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: "turners-car-insurance-quote"
