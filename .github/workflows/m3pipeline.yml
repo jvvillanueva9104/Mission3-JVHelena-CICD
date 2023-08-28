@@ -69,6 +69,10 @@ jobs:
         with:
           node-version: "18.x"
 
+      - name: List files before uploading artifact
+        run: |
+          ls -R dist/ src/ test/ mocharc.json package-lock.json package.json tsconfig.json
+
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
