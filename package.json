@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/App.ts",
   "scripts": {
-    "test": "mocha && nyc mocha",
+    "test": "mocha --exit",
     "dev": "tsnd ./src/App.ts",
     "start": "tsnd /Users/helenalee/Desktop/Mission1/Backend/src/App.ts"
   },
