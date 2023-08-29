@@ -7,10 +7,6 @@ on:
   push:
     branches:
       - "feature/*"
-  pull_request:
-    branches:
-      - "develop"
-      - "main"
 
 jobs:
   build_and_test:
@@ -68,3 +64,5 @@ jobs:
 
       - name: Run Snyk Scan
         run: snyk test --all-projects --severity-threshold=high
+
+        #comment 1
