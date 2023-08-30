@@ -15,8 +15,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == false && github.base_ref == 'refs/heads/develop'
-
+    if: github.event.pull_request.merged == false
     steps:
       - uses: actions/checkout@v2
 
