@@ -68,11 +68,8 @@ jobs:
 
       - name: Run Snyk Scan
         run: snyk test --all-projects --severity-threshold=high
-
-        #comment 12345
+feature/pipeline1
+        #comment 123456789
 =======
-      - run: npm ci
-      # - run: npm run build --if-present
-      - run: npm test
-      # comment added
-main
+        #comment 12345
+
