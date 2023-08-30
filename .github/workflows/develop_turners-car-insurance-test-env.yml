@@ -8,9 +8,6 @@ on:
     branches:
       - develop
   pull_request: 
-    types:
-      - closed
-      - opened
     branches:
       - develop
   workflow_dispatch:
