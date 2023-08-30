@@ -10,6 +10,7 @@ on:
   pull_request:
     branches:
       - "develop"
+      - "main"
 
 jobs:
   build_and_test:
@@ -29,7 +30,6 @@ jobs:
 
       - name: Install NPM
         run: npm install
- develop
 
       - name: Install Dependencies
         run: npm ci
@@ -68,8 +68,5 @@ jobs:
 
       - name: Run Snyk Scan
         run: snyk test --all-projects --severity-threshold=high
-feature/pipeline1
-        #comment 123456789
-=======
-        #comment 12345
 
+        #comment 12
