@@ -9,13 +9,6 @@
 Using Github Actions, we created a pipeline that automates the deployment of APIs from Mission1 to Microsoft Azure. When we trigger "git push," the pipeline deploys the new code automatically. Additionally, the pipeline includes running unit tests to ensure the new version of APIs is available on the cloud.
 
 
-## Acknowledgements
-
--
--
--
-
-
 ## 🛠 Skills
  - Language: Typescript
  - Test framework: Mocha
