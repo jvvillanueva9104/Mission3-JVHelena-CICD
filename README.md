@@ -23,11 +23,3 @@ To run tests, run the following command
 ```bash
   npm run test
 ```
-
-
-## Related
-
-Here are some related projects
-
-[README](https://github.com/)
-
